@@ -13,7 +13,7 @@ const Hero = () => {
 
             <h1 className='text-4xl md:text-6xl font-bold mb-6'>Hi, I'm <span className='text-primary'>Soumava Das</span></h1>
 
-            <p className='text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8'>Front-end Developer</p>
+            <p className='text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8'>Full Stack Developer</p>
 
             <div className='flex justify-center space-x-4 mb-8'>
                 <Link href="/" className='text-2xl text-gray-600 hover:text-primary dark:text-gray-300 transition-colors duration-300'>
