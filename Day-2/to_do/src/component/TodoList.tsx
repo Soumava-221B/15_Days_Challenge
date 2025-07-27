@@ -1,15 +1,39 @@
-import type { Todo } from "../App";
+import type { Theme, Todo } from "../App";
 
 type TodoListProps = {
   todos: Todo[];
   toggleTodo: (id: string) => void;
   deleteTodo: (id: string) => void;
+  theme: Theme;
 };
 
-export const TodoList = ({ todos, toggleTodo, deleteTodo }: TodoListProps) => {
+export const TodoList = ({ todos, toggleTodo, deleteTodo, theme }: TodoListProps) => {
   if (todos.length === 0) {
     return <p className="text-gray-500 text-center py-4">No todos found</p>;
   }
+
+  const themeTextClasses = {
+    light: {
+      completed: 'text-gray-400',
+      active: 'text-gray-800',
+    },
+    dark: {
+      completed: 'text-gray-500',
+      active: 'text-gray-200',
+    },
+    blue: {
+      completed: 'text-blue-300',
+      active: 'text-blue-800',
+    },
+    green: {
+      completed: 'text-green-300',
+      active: 'text-green-800',
+    },
+    purple: {
+      completed: 'text-purple-300',
+      active: 'text-purple-800',
+    },
+  };
 
   return (
     <ul className="divide-y divide-gray-200">
@@ -22,7 +46,7 @@ export const TodoList = ({ todos, toggleTodo, deleteTodo }: TodoListProps) => {
             className="h-5 w-5 text-blue-500 rounded mr-3"
           />
           <span
-            className={`flex-1 ${todo.completed ? 'line-through text-gray-400' : 'text-gray-800'}`}
+            className={`flex-1 ${todo.completed ? `line-through ${themeTextClasses[theme].completed}` : themeTextClasses[theme].active}`}
           >
             {todo.text}
           </span>
