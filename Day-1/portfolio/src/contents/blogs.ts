@@ -6,6 +6,6 @@ export const blogs: Blog[] = [
         excerpt: 'Learn about Postman APIs',
         date: '2022-04-15',
         readTime: '5 min read',
-        slug: 'getting-started-with-postman',
+        slug: 'https://medium.com/@soumavadas22/api-102-building-workflows-with-apis-in-postman-8549fd7fbdd8',
       },
   ];

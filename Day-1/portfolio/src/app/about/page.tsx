@@ -103,11 +103,11 @@ const About = () => {
 
         <div className="max-w-3xl mx-auto space-y-8">
           <div className="bg-white dark:bg-dark/50 p-6 rounded-lg shadow-md">
-            <h3 className="text-xl font-semibold mb-2">B.tech Computer Science</h3>
+            <h3 className="text-xl font-semibold mb-2">B.tech Computer Science Engineering</h3>
             <p className="text-primary mb-2">
               Siksha O Anusandhan University • 2019 - 2023
             </p>
-            <p className="text-secondary">Graduated with honors</p>
+            {/* <p className="text-secondary">Graduated with honors</p> */}
           </div>
 
         </div>
