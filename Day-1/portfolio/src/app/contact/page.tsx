@@ -1,6 +1,5 @@
 "use client";
 
-import { p } from "framer-motion/client";
 import Link from "next/link";
 import { useState } from "react";
 import { FaEnvelope, FaMapMarkedAlt, FaPhone } from "react-icons/fa";
