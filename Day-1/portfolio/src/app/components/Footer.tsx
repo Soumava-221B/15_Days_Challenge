@@ -13,11 +13,11 @@ const Footer = () => {
                 </div>
 
                 <div className='flex space-x-6 '>
-                <Link href="/" className='text-2xl text-gray-600 hover:text-primary dark:text-gray-300 transition-colors duration-300'>
+                <Link href="https://github.com/Soumava-221B" target="_blank" className='text-2xl text-gray-600 hover:text-primary dark:text-gray-300 transition-colors duration-300'>
                 <FaGithub/></Link>
-                <Link href="/" className='text-2xl text-gray-600 hover:text-primary dark:text-gray-300 transition-colors duration-300'>
+                <Link href="https://www.linkedin.com/in/soumava-d-634820196" target="_blank" className='text-2xl text-gray-600 hover:text-primary dark:text-gray-300 transition-colors duration-300'>
                 <FaLinkedin/></Link>
-                <Link href="/" className='text-2xl text-gray-600 hover:text-primary dark:text-gray-300 transition-colors duration-300'>
+                <Link href="https://x.com/Soumava_221B" target="_blank" className='text-2xl text-gray-600 hover:text-primary dark:text-gray-300 transition-colors duration-300'>
                 <FaTwitter/></Link>
             </div>
             </div>
