@@ -12,9 +12,9 @@
 
 # 📅 15-Days (Project List) 
 
-## **Day 1: Personal Portfolio Page**
-- **Tech:** Next.js + Tailwind  
-- **Goal:** Static portfolio with bio, projects, and contact  
+## **✅Day 1: Personal Portfolio Page**
+- **Tech:** Next.js + Tailwind  +  Framer Motion
+- **Goal:** Dynamic portfolio with about, projects, and contact  
 - **Features:** Responsive, dark/light mode  
 
 ## **Day 2: Todo List with Local Storage**
