@@ -17,7 +17,7 @@
 - **Goal:** Dynamic portfolio with about, projects, and contact  
 - **Features:** Responsive, dark/light mode  
 
-## **Day 2: Todo List with Local Storage**
+## **✅Day 2: Todo List with Local Storage**
 - **Tech:** React + TypeScript + Tailwind  
 - **Goal:** Add, delete, and persist todos  
 - **Features:** Filter (All/Active/Completed)  
