@@ -11,7 +11,7 @@ const Blogs = () => {
         <div className='grid grid-cols-1 md:grid-col-3 gap-8'>
             {
                 blogs.map((blog) => (
-                    <article key={blog.slug} className='bg-white dark:bg-dark/50'>
+                    <article key={blog.slug} className='bg-white dark:bg-dark/50 rounded-lg shadow-md p-6'>
                         <Link href={`/blog/${blog.slug}`}>
                         <h3 className='text-xl font-semibold mb-2 hover:text-primary transition-colors'>{blog.title}</h3></Link>
                         <p className='text-gray-600 dark:text-gray-300 mb-4'>{blog.excerpt}</p>
