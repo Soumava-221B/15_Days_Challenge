@@ -21,34 +21,36 @@ const ContactPage = () => {
 
   const [status, setStatus] = useState<FormStatus>("idle");
 
-  const handleSubmit = async(e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setStatus("loading")
+    setStatus("loading");
     try {
-        const response = await fetch("/api/contact", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(formData)
-        })
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-        if(!response.ok) {
-            throw new Error("Failed to send message");
-        }
+      if (!response.ok) {
+        throw new Error("Failed to send message");
+      }
 
-        setStatus("success");
-        setFormData({
-            name: "",
-            email: "",
-            message: ""
-        })
-    } catch (error) {
-        setStatus("error");
+      setStatus("success");
+      setFormData({
+        name: "",
+        email: "",
+        message: "",
+      });
+    } catch {
+      setStatus("error");
     }
-  }
+  };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData((prev) => ({
       ...prev,
       [e.target.name]: e.target.value,
@@ -64,7 +66,7 @@ const ContactPage = () => {
         <div className="space-y-8">
           <h2 className="text-2xl font-semibold mb-4">Get in Touch</h2>
           <p className="text-secondary md:w-2/3">
-            I'm always open to discussing new projects, creative ideas, or
+            I&apos;m always open to discussing new projects, creative ideas, or
             opportunities to be part of your visions.
           </p>
           <div className="space-y-4">
@@ -73,7 +75,7 @@ const ContactPage = () => {
               <div>
                 <h3 className="font-bold">Email:</h3>
                 <Link
-                  href="soumavadas22@gmail.com"
+                  href="mailto:soumavadas22@gmail.com"
                   className="text-secondary hover:text-primary"
                 >
                   soumavadas22@gmail.com
@@ -164,17 +166,17 @@ const ContactPage = () => {
               {status === "loading" ? "Sending..." : "Send Message"}
             </button>
 
-            {
-                status === "success" && (
-                    <p className="text-green-500 text-center">Message sent successfully</p>
-                )
-            }
+            {status === "success" && (
+              <p className="text-green-500 text-center">
+                Message sent successfully
+              </p>
+            )}
 
-            {
-                status === "error" && (
-                    <p className="text-red-500 text-center">Failed to send message. Please try again.</p>
-                )
-            }
+            {status === "error" && (
+              <p className="text-red-500 text-center">
+                Failed to send message. Please try again.
+              </p>
+            )}
           </form>
         </div>
       </div>
