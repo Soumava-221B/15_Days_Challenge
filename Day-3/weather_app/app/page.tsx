@@ -3,7 +3,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Search, Thermometer } from "lucide-react";
+import { Droplet, Search, Thermometer, Wind } from "lucide-react";
 import { getWeatherData } from "./actions";
 import { WeatherData } from "./types/weather";
 import { useState } from "react";
@@ -19,10 +19,17 @@ function SubmitButton() {
 
 export default function Home() {
   const [weather, setWeather] = useState<WeatherData | null>(null);
+  const [error, setError] = useState<string>("")
 
   const handleSeach = async (formData: FormData) => {
     const city = formData.get("city") as string;
-    const { data } = await getWeatherData(city);
+    const { data, error: weatherApiError } = await getWeatherData(city);
+    console.log(error)
+
+    if (weatherApiError) {
+      setError(weatherApiError);
+    }
+
     if (data) {
       setWeather(data);
     }
@@ -41,6 +48,10 @@ export default function Home() {
           />
           <SubmitButton />
         </form>
+
+        {error && (
+          <div>{error}</div>
+        )}
 
         {weather && (
           <div>
@@ -64,9 +75,27 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="grid grid-cols-3 gap-4 mt-6">
-                  <div className="text-center"><Thermometer className="w-6 h-6 mx-auto text-orange-500"/></div>
-                  <div>icon</div>
-                  <div>icon</div>
+                  <div className="text-center">
+                    <Thermometer className="w-6 h-6 mx-auto text-orange-500" />
+                    <div className="mt-2 text-sm text-gray-500">Feels Like</div>
+                    <div className="font-semibold">
+                      {Math.round(weather.main.feels_like)}°C
+                    </div>
+                  </div>
+                  <div><div className="text-center">
+                    <Droplet className="w-6 h-6 mx-auto text-blue-500" />
+                    <div className="mt-2 text-sm text-gray-500">Humidity</div>
+                    <div className="font-semibold">
+                      {Math.round(weather.main.humidity)}°C
+                    </div>
+                  </div></div>
+                  <div><div className="text-center">
+                    <Wind className="w-6 h-6 mx-auto text-teal-500" />
+                    <div className="mt-2 text-sm text-gray-500">Wind</div>
+                    <div className="font-semibold">
+                      {Math.round(weather.wind.speed)} m/s
+                    </div>
+                  </div></div>
                 </div>
               </CardContent>
             </Card>
