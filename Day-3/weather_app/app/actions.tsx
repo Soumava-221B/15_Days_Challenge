@@ -20,7 +20,9 @@ const weatherSchema = z.object({
     wind: z.object({
         speed: z.number(),
     }),
-})
+    timezone: z.number(), 
+    dt: z.number(), 
+});
 
 export async function getWeatherData(city: string): Promise<{
   data?: WeatherData;

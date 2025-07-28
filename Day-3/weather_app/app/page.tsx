@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import { Button } from "@/components/ui/button";
@@ -10,6 +9,7 @@ import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { useFormStatus } from "react-dom";
 import { motion } from "framer-motion";
+import { formatLocalTime } from "./utils/time";
 
 function SubmitButton() {
   const { pending } = useFormStatus();
@@ -19,6 +19,15 @@ function SubmitButton() {
       <Search className={`h-4 w-4 ${pending ? "animate-spin" : ""}`} />
     </Button>
   );
+}
+
+function isDayTime(weatherData: WeatherData): boolean {
+    const localTimestamp = weatherData.dt + weatherData.timezone;
+    
+    const date = new Date(localTimestamp * 1000);
+    const hours = date.getUTCHours(); 
+    
+    return hours >= 6 && hours < 18;
 }
 
 export default function Home() {
@@ -42,7 +51,13 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-sky-400 to-blue-500 p-4 flex items-center justify-center">
+    <div className={`min-h-screen bg-gradient-to-b from-sky-400 to-blue-500 p-4 flex items-center justify-center transition-colors duration-1000 ${
+            weather 
+                ? isDayTime(weather) 
+                    ? "bg-gradient-to-b from-sky-400 to-blue-500" 
+                    : "bg-gradient-to-b from-blue-900 to-gray-900"
+                : "bg-gradient-to-b from-sky-400 to-blue-500"
+        }`}>
       <div className="w-full max-w-md space-y-4">
         <form action={handleSeach} className="flex gap-2">
           <Input
@@ -70,7 +85,11 @@ export default function Home() {
           exit = {{ opacity: 0 }}
           transition={{ duration: 0.3 }}
           >
-            <Card className="bg-white/50 backdrop-blur">
+            <Card className={`backdrop-blur ${
+    weather && isDayTime(weather) 
+        ? "bg-white/50" 
+        : "bg-gray-800/50 text-white"
+}`}>
               <CardContent className="p-6">
                 <div className="text-center mb-4">
                   <motion.h2 
@@ -78,6 +97,7 @@ export default function Home() {
                   animate={{ scale: 1 }}
                   className="text-2xl font-bold">{weather.name}</motion.h2>
                   <div className="flex items-center justify-center gap-2 mt-2">
+                    <div className="text-sm bg-black/10 dark:bg-white/10 px-2 py-1 rounded-md">{formatLocalTime(weather)}</div>
                     <motion.img
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -114,7 +134,7 @@ export default function Home() {
                     <Droplet className="w-6 h-6 mx-auto text-blue-500" />
                     <div className="mt-2 text-sm text-gray-500">Humidity</div>
                     <div className="font-semibold">
-                      {Math.round(weather.main.humidity)}°C
+                      {Math.round(weather.main.humidity)}%
                     </div>
                   </div></div>
                   <div><div className="text-center">
