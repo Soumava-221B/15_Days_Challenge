@@ -8,11 +8,14 @@ import { getWeatherData } from "./actions";
 import { WeatherData } from "./types/weather";
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
+import { useFormStatus } from "react-dom";
 
 function SubmitButton() {
+  const { pending } = useFormStatus();
+
   return (
-    <Button type="submit">
-      <Search className="w-4 h-4" />
+    <Button type="submit" disabled={pending}>
+      <Search className={`h-4 w-4 ${pending ? "animate-spin" : ""}`} />
     </Button>
   );
 }
@@ -22,6 +25,8 @@ export default function Home() {
   const [error, setError] = useState<string>("")
 
   const handleSeach = async (formData: FormData) => {
+    setError("");
+
     const city = formData.get("city") as string;
     const { data, error: weatherApiError } = await getWeatherData(city);
     console.log(error)
@@ -50,7 +55,7 @@ export default function Home() {
         </form>
 
         {error && (
-          <div>{error}</div>
+          <div className="text-center text-red-200 bg-red-500/20 rounded-md p-2">{error}</div>
         )}
 
         {weather && (
