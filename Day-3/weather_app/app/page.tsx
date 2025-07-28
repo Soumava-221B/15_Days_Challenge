@@ -9,6 +9,7 @@ import { WeatherData } from "./types/weather";
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { useFormStatus } from "react-dom";
+import { motion } from "framer-motion";
 
 function SubmitButton() {
   const { pending } = useFormStatus();
@@ -55,29 +56,51 @@ export default function Home() {
         </form>
 
         {error && (
-          <div className="text-center text-red-200 bg-red-500/20 rounded-md p-2">{error}</div>
+          <motion.div 
+          initial = {{ opacity: 0, y: 10 }}
+          animate = {{ opacity: 1, y: 0 }}
+          exit = {{ opacity: 0 }}
+          className="text-center text-red-200 bg-red-500/20 rounded-md p-2">{error}</motion.div>
         )}
 
         {weather && (
-          <div>
+          <motion.div
+          initial = {{ opacity: 0, y: 20 }}
+          animate = {{ opacity: 1, y: 0 }}
+          exit = {{ opacity: 0 }}
+          transition={{ duration: 0.3 }}
+          >
             <Card className="bg-white/50 backdrop-blur">
               <CardContent className="p-6">
                 <div className="text-center mb-4">
-                  <h2 className="text-2xl font-bold">{weather.name}</h2>
+                  <motion.h2 
+                  initial={{ scale: 0.5 }}
+                  animate={{ scale: 1 }}
+                  className="text-2xl font-bold">{weather.name}</motion.h2>
                   <div className="flex items-center justify-center gap-2 mt-2">
-                    <img
+                    <motion.img
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
                       src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
                       alt={weather.weather[0].description}
                       width={64}
                       height={64}
                     />
-                    <div className="text-5xl font-bold">
+                    <motion.div 
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.2 }}
+                    className="text-5xl font-bold">
                       {Math.round(weather.main.temp)}°C
-                    </div>
+                    </motion.div>
                   </div>
-                  <div className="text-gray-500 mt-1 capitalize">
+                  <motion.div
+                  initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.3 }}
+                  className="text-gray-500 mt-1 capitalize">
                     {weather.weather[0].description}
-                  </div>
+                  </motion.div>
                 </div>
                 <div className="grid grid-cols-3 gap-4 mt-6">
                   <div className="text-center">
@@ -104,7 +127,7 @@ export default function Home() {
                 </div>
               </CardContent>
             </Card>
-          </div>
+          </motion.div>
         )}
       </div>
     </div>
