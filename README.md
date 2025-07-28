@@ -22,7 +22,7 @@
 - **Goal:** Add, delete, and persist todos  
 - **Features:** Filter (All/Active/Completed)  
 
-## **Day 3: Weather App (API-Based)**
+## **✅Day 3: Weather App (API-Based)**
 - **Tech:** Next.js + OpenWeather API  
 - **Goal:** Fetch and display weather by city  
 - **Features:** Geolocation, unit toggle (°C/°F)  
