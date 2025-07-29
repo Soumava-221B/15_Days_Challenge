@@ -1,12 +1,15 @@
 // import ProgressBar from "./ProgressBar"
 // import QuizStart from "./QuizStart"
 
-import Questions from "./Questions"
+import Results from "./Result"
+
+// import Questions from "./Questions"
 // import Timer from "./Timer"
 
 const Quiz = () => {
   return (
-    <Questions/>
+    <Results/>
+    // <Questions/>
     // <Timer />
     // <ProgressBar/>
     // <QuizStart/>
