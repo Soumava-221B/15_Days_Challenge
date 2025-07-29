@@ -1,6 +1,10 @@
+import Quiz from "./components/Quiz"
+
 const App = () => {
   return (
-    <div className="text-5xl">Hello World!</div>
+    <div>
+      <Quiz />
+    </div>
   )
 }
 
