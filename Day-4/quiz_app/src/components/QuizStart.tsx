@@ -1,4 +1,4 @@
-import { BookOpen, Clock, Trophy } from "lucide-react"
+import { BookOpen, Clock, Play, Trophy } from "lucide-react"
 
 const QuizStart = () => {
   return (
@@ -38,6 +38,38 @@ const QuizStart = () => {
                     <div className="text-2xl font-medium">Max Score</div>
                 </div>
             </div>
+
+            {/* Rules */}
+            <div className="mb-8">
+                <h3 className="text-xl font-semibold text-gray-800 mb-4">
+                    Quiz Rules
+                </h3>
+                <div className="text-left bg-gray-50 p-6 rounded-xl max-w-2xl mx-auto">
+                    <ul className="space-y-3 text-gray-700">
+                        <li className="flex items-start">
+                            <span className="flex-shrink-0 w-6 h-6 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-sm font-semibold mr-3 mt-0.5">1</span>
+                            <span>Each question has multiple choice answer</span>
+                        </li>
+                        <li className="flex items-start">
+                            <span className="flex-shrink-0 w-6 h-6 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-sm font-semibold mr-3 mt-0.5">2</span>
+                            <span>You have 5 Minutes to complete all the questions</span>
+                        </li>
+                        <li className="flex items-start">
+                            <span className="flex-shrink-0 w-6 h-6 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-sm font-semibold mr-3 mt-0.5">3</span>
+                            <span>Once you select an answer, you will see the explanation</span>
+                        </li>
+                        <li className="flex items-start">
+                            <span className="flex-shrink-0 w-6 h-6 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-sm font-semibold mr-3 mt-0.5">4</span>
+                            <span>You can navigate back to the previous questions</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <button className="inline-flex items-center space-x-3 py-4 px-8 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl hover:from-blue-600 hover:to-purple-700 transform hover:scale-105 transition-all duration-200 shadow-lg font-semibold text-lg cursor-pointer">
+                <Play size={24}/>
+                <span>Start Quiz</span>
+            </button>
         </div>
     </div>
   )
