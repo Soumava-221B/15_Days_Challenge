@@ -27,10 +27,10 @@
 - **Goal:** Fetch and display weather by city  
 - **Features:** Geolocation, unit toggle (°C/°F)  
 
-## **Day 4: Quiz App (Trivia API)**
+## **✅Day 4: Quiz App (Trivia API)**
 - **Tech:** React + TypeScript + Tailwind  
 - **Goal:** Fetch questions, track score  
-- **Features:** Timer, multiple-choice validation  
+- **Features:** Timer, MCQ validation  
 
 ## **Day 5: Random Quote Generator**
 - **Tech:** Next.js + TypeScript  
