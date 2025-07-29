@@ -1,8 +1,10 @@
-import QuizStart from "./QuizStart"
+import ProgressBar from "./ProgressBar"
+// import QuizStart from "./QuizStart"
 
 const Quiz = () => {
   return (
-    <QuizStart/>
+    <ProgressBar/>
+    // <QuizStart/>
     // <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 py-8 px-4">
     //     <div className="max-w-4xl mx-auto mb-8">
     //         <div className="bg-white rounded-xl shadow-lg p-6">
