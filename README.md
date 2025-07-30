@@ -12,30 +12,30 @@
 
 # 📅 15-Days (Project List) 
 
-## **✅Day 1: Personal Portfolio Page**
+## **✅Day 1: Personal Portfolio Page** - [Live Link](https://soumavadas.dev/)
 - **Tech:** Next.js + Tailwind  +  Framer Motion
 - **Goal:** Dynamic portfolio with about, projects, and contact  
 - **Features:** Responsive, dark/light mode  
 
-## **✅Day 2: Todo List with Local Storage**
+## **✅Day 2: Todo List with Local Storage** - [Live Link](https://todolist-eta-three-27.vercel.app/)
 - **Tech:** React + TypeScript + Tailwind  
 - **Goal:** Add, delete, and persist todos  
 - **Features:** Filter (All/Active/Completed)  
 
-## **✅Day 3: Weather App (API-Based)**
+## **✅Day 3: Weather App (API-Based)** - [Live Link](https://weatherapp-orpin-three-42.vercel.app/)
 - **Tech:** Next.js + OpenWeather API  
 - **Goal:** Fetch and display weather by city  
 - **Features:** Geolocation, unit toggle (°C/°F)  
 
-## **✅Day 4: Quiz App (Trivia API)**
+## **✅Day 4: Quiz App (Trivia API)** - [Live Link](https://quizapp-mauve-one.vercel.app/)
 - **Tech:** React + TypeScript + Tailwind  
 - **Goal:** Fetch questions, track score  
 - **Features:** Timer, MCQ validation  
 
-## **Day 5: Random Quote Generator**
+## **✅Day 5: Random Quote Generator** - [Live Link](https://quote-generator-2025-sooty.vercel.app/)
 - **Tech:** Next.js + TypeScript  
 - **Goal:** Fetch quotes from Quotable API  
-- **Features:** Tweet button, animations  
+- **Features:** Tweet button, New Quote Button  
 
 ## **Day 6: Memory Card Game**
 - **Tech:** React + TypeScript  
