@@ -3,62 +3,48 @@
 import { MATCHING_CARDS } from "../lib/Constants";
 import { useGame } from "./UseGame";
 import { isGameOver } from "../lib/Utils";
+import { Card } from "./Card";
+import { useEffect } from "react";
+import confetti from 'canvas-confetti';
 
-
-
-function Card({
-  item,
-  onClick,
-  revealed = false,
-  found = false,
-}: {
-  item: string;
-  onClick: () => void;
-  revealed?: boolean;
-  found?: boolean;
-}) {
-  const cardTransitionClasses = "transition duration-500";
-  const cardContentTransitionClasses = "transition duration-300";
-  const contentClasses = "bg-blue-500 w-full h-full absolute top-0 left-0 rounded-lg shadow-md";
-  const flipUpClasses = "scale-x-100 opacity-100";
-  const flipDownClasses = "-scale-x-100 opacity-0";
-
-  return (
-    <button
-      className={`w-20 h-32 relative ${cardTransitionClasses} ${
-        found ? "opacity-0" : ""
-      }`}
-      onClick={() => {
-        if (!found && !revealed) {
-          onClick();
-        }
-      }}
-    >
-      <div
-        className={`${contentClasses} ${cardTransitionClasses} ${
-          revealed ? flipDownClasses : flipUpClasses
-        }`}
-      />
-
-      <div
-        className={`flex items-center justify-center ${contentClasses} ${cardTransitionClasses} ${
-          revealed ? flipUpClasses : flipDownClasses
-        }`}
-      >
-        <p
-          className={`text-3xl ${cardContentTransitionClasses} ${
-            revealed ? "opacity-100" : "opacity-0"
-          }`}
-        >
-          {item}
-        </p>
-      </div>
-    </button>
-  );
-}
 
 export function Board() {
   const { state, handler } = useGame();
+
+  const fireConfetti = () => {
+  const duration = 3000;
+  const animationEnd = Date.now() + duration;
+  const defaults = { 
+    startVelocity: 30, 
+    spread: 360, 
+    ticks: 60, 
+    zIndex: 0 
+  };
+
+  const interval = setInterval(() => {
+    const timeLeft = animationEnd - Date.now();
+
+    if (timeLeft <= 0) {
+      return clearInterval(interval);
+    }
+
+    const particleCount = 50 * (timeLeft / duration);
+    confetti({
+      ...defaults,
+      particleCount,
+      origin: { 
+        x: Math.random(),
+        y: Math.random() - 0.2 
+      }
+    });
+  }, 250);
+};
+
+useEffect(() => {
+  if (isGameOver(state.found)) {
+    fireConfetti();
+  }
+}, [state.found]);
 
   return (
     <div className="flex w-full min-h-screen items-center justify-center gap-6 flex-col text-blue-950 bg-gradient-to-br from-blue-100 to-indigo-100" 
@@ -71,7 +57,7 @@ export function Board() {
           <p>Moves: {state.moves}</p>
         </div>
         {isGameOver(state.found) ? (
-          <p className="font-bold text-center text-green-600">End of Game!</p>
+          <p className="font-bold text-center text-green-600">You Won🏆</p>
         ) : null}
         <button
           className="self-center px-4 mt-2 font-bold border rounded-lg border-blue-300 text-blue-800 bg-blue-100 hover:bg-blue-200 transition-colors"
