@@ -1,1 +1,7 @@
 @import "tailwindcss";
+
+@layer components {
+  .btn-default {
+    @apply bg-gray-100 py-3 aspect-square rounded-2xl shadow-sm text-gray-600 hover:brightness-95 hover:cursor-pointer active:brightness-90 transition-all duration-100 text-3xl;
+  }
+}
