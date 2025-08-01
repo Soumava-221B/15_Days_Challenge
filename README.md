@@ -42,7 +42,7 @@
 - **Goal:** Match pairs of cards  
 - **Features:** Moves counter, win modal  
 
-## **Day 7: Calculator (Advanced)**
+## **✅Day 7: Calculator (Advanced)**
 - **Tech:** React + TypeScript  
 - **Goal:** Support PEMDAS operations  
 - **Features:** History log, theme toggle  

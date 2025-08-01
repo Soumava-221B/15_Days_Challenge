@@ -1,16 +1,33 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export const useCalculator = () => {
   const [currentValue, setCurrentValue] = useState('0');
   const [previousValue, setPreviousValue] = useState(null);
   const [operation, setOperation] = useState(null);
   const [overwrite, setOverwrite] = useState(true);
+  const [history, setHistory] = useState([]);
+  const [showHistory, setShowHistory] = useState(false);
+
+  useEffect(() => {
+    const savedHistory = localStorage.getItem('calculatorHistory');
+    if (savedHistory) {
+      setHistory(JSON.parse(savedHistory));
+    }
+  }, []);
+  
+  useEffect(() => {
+    localStorage.setItem('calculatorHistory', JSON.stringify(history));
+  }, [history]);
 
   const clear = () => {
     setCurrentValue('0');
     setPreviousValue(null);
     setOperation(null);
     setOverwrite(true);
+  };
+
+  const clearHistory = () => {
+    setHistory([]);
   };
 
   const deleteLastChar = () => {
@@ -55,7 +72,7 @@ export const useCalculator = () => {
     }
 
     if (operation) {
-      const result = calculate();
+      const result = calculate(false);
       setPreviousValue(result);
       setCurrentValue('0');
       setOperation(op);
@@ -63,12 +80,13 @@ export const useCalculator = () => {
     }
   };
 
-  const calculate = () => {
+  const calculate = (saveToHistory = true) => {
     if (!operation || previousValue === null) return currentValue;
 
     const prev = parseFloat(previousValue);
     const current = parseFloat(currentValue);
     let result;
+    let operationSymbol = operation;
 
     switch (operation) {
       case '+':
@@ -79,9 +97,11 @@ export const useCalculator = () => {
         break;
       case 'x':
         result = prev * current;
+        operationSymbol = '×';
         break;
       case '÷':
         result = prev / current;
+        operationSymbol = '÷';
         break;
       case '%':
         result = prev % current;
@@ -91,6 +111,11 @@ export const useCalculator = () => {
         break;
       default:
         return current;
+    }
+
+    if (saveToHistory) {
+      const calculation = `${previousValue} ${operationSymbol} ${currentValue} = ${result}`;
+      setHistory(prev => [calculation, ...prev].slice(0, 10)); // Keep last 10 items
     }
 
     return result.toString();
@@ -117,9 +142,16 @@ export const useCalculator = () => {
     setOverwrite(true);
   };
 
+  const toggleHistory = () => {
+    setShowHistory(!showHistory);
+  };
+
   return {
     currentValue,
+    history,
+    showHistory,
     clear,
+    clearHistory,
     deleteLastChar,
     addDigit,
     addDecimal,
@@ -127,5 +159,6 @@ export const useCalculator = () => {
     equals,
     handlePercentage,
     handleSquareRoot,
+    toggleHistory,
   };
 };
