@@ -37,7 +37,7 @@
 - **Goal:** Fetch quotes from Quotable API  
 - **Features:** Tweet button, New Quote Button  
 
-## **✅Day 6: Memory Card Game**
+## **✅Day 6: Memory Card Game** - [Live Link](https://memory-game-2025-ebon.vercel.app/)
 - **Tech:** React + TypeScript  
 - **Goal:** Match pairs of cards  
 - **Features:** Moves counter, win modal  
