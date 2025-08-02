@@ -115,7 +115,7 @@ export const useCalculator = () => {
 
     if (saveToHistory) {
       const calculation = `${previousValue} ${operationSymbol} ${currentValue} = ${result}`;
-      setHistory(prev => [calculation, ...prev].slice(0, 10)); // Keep last 10 items
+      setHistory(prev => [calculation, ...prev].slice(0, 10));
     }
 
     return result.toString();

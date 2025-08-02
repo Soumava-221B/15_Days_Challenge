@@ -42,7 +42,7 @@
 - **Goal:** Match pairs of cards  
 - **Features:** Moves counter, win modal  
 
-## **✅Day 7: Calculator (Advanced)**
+## **✅Day 7: Calculator (Advanced)** - [Live Link](https://calculator-app-2025-22-lilac.vercel.app/)
 - **Tech:** React + TypeScript  
 - **Goal:** Support PEMDAS operations  
 - **Features:** History log, theme toggle  
