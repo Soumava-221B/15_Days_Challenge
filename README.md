@@ -47,7 +47,7 @@
 - **Goal:** Support PEMDAS operations  
 - **Features:** History log, theme toggle  
 
-## **Day 8: Pomodoro Timer**
+## **✅Day 8: Pomodoro Timer** - [Live Link](https://pomodoro-alpha-steel.vercel.app/)
 - **Tech:** Next.js + Tailwind  
 - **Goal:** 25-min work, 5-min break timer  
 - **Features:** Customizable intervals, notifications  
