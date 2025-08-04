@@ -52,7 +52,7 @@
 - **Goal:** 25-min work, 5-min break timer  
 - **Features:** Customizable intervals, notifications  
 
-## **✅Day 9: Recipe Finder (Spoonacular API)**
+## **✅Day 9: Recipe Finder (Spoonacular API)** [Live Link](https://recipiefinder-nu.vercel.app/)
 - **Tech:** Next.js + TypeScript  
 - **Goal:** Search/filter recipes  
 - **Features:** Save favorites (localStorage)  
