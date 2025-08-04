@@ -13,7 +13,7 @@ export interface Recipe {
   sourceUrl?: string;
 }
 
-export const fetchRecipes = async (query: string): Promise<Recipe[]> => {
+export const fetchRecipes = async (query: string, maxReadyTime?: number): Promise<Recipe[]> => {
   try {
     const response = await axios.get(`${BASE_URL}/complexSearch`, {
       params: {
@@ -21,6 +21,7 @@ export const fetchRecipes = async (query: string): Promise<Recipe[]> => {
         query: query,
         addRecipeInformation: true,
         number: 10,
+        maxReadyTime: maxReadyTime
       },
       headers: {
         "Content-Type": "application/json",

@@ -52,7 +52,7 @@
 - **Goal:** 25-min work, 5-min break timer  
 - **Features:** Customizable intervals, notifications  
 
-## **Day 9: Recipe Finder (Spoonacular API)**
+## **✅Day 9: Recipe Finder (Spoonacular API)**
 - **Tech:** Next.js + TypeScript  
 - **Goal:** Search/filter recipes  
 - **Features:** Save favorites (localStorage)  
