@@ -63,7 +63,7 @@ export default function Home() {
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          placeholder="Search for recipes (e.g., pizza, pasta, chicken, paneer, dosa)..."
+          placeholder="Search for recipes (e.g., pizza, pasta, chicken, paneer)..."
           onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
           className="flex-1 p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
