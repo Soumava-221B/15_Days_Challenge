@@ -9,7 +9,7 @@ import { useRouter } from 'next/navigation'
 
 import React from 'react'
 
-const suggestions=[
+export const suggestions=[
     {
         title: 'Create New Trip',
         icon: <Globe2 className='text-blue-400 h-4 w-4'/>
