@@ -57,10 +57,10 @@
 - **Goal:** Search/filter recipes  
 - **Features:** Save favorites (localStorage)  
 
-## **Day 10: Budget Tracker (Chart.js)**
-- **Tech:** React + TypeScript  
-- **Goal:** Track income/expenses  
-- **Features:** Pie chart visualization  
+## **Day 10: AI Trip Planner(Saas App)**
+- **Tech:** Next.js + TypeScript + convex DB + Shadcn + clerk + Magic UI + Arcjet + Mapbox + Google Places API
+- **Goal:** Generate Trip Plan  
+- **Features:** 
 
 ## **Day 11: Movie Search (TMDB API)**
 - **Tech:** Next.js + TypeScript  
