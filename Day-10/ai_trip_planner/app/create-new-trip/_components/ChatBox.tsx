@@ -6,10 +6,13 @@ import axios from "axios";
 import { Loader, Send } from "lucide-react";
 import React, { useState } from "react";
 import EmptyBoxState from "./EmptyBoxState";
+import GroupSizeUi from "./GroupSizeUi";
+import BudgetUi from "./BudgetUi";
 
 type Message = {
-  role: string;
-  content: string;
+  role: string,
+  content: string,
+  ui?: string,
 };
 
 function ChatBox() {
@@ -37,11 +40,24 @@ function ChatBox() {
       {
         role: "assistant",
         content: result?.data?.resp,
+        ui:result?.data?.ui
       },
     ]);
     console.log(result.data);
     setLoading(false);
   };
+
+  const RenderGenrativeUi = (ui:string)=>{
+    if(ui=='budget')
+    {
+      //Budget UI component
+      return <BudgetUi onSelectedOption={(v:string)=>{setUserInput(v); onSend()}}/>
+    } else if (ui == 'groupSize') {
+        // Group Size UI Component
+        return <GroupSizeUi onSelectedOption={(v:string)=>{setUserInput(v); onSend()}}/>
+    }
+    return null
+  }
 
   return (
     <div className="h-[85vh] flex flex-col">
@@ -59,7 +75,8 @@ function ChatBox() {
           ) : (
             <div className="flex justify-start mt-2" key={index}>
               <div className="max-w-lg bg-gray-100 text-black px-4 py-2 rounded-lg">
-                {loading ? <Loader className="animate-spin" /> : msg.content}
+                {msg.content}
+                {RenderGenrativeUi(msg.ui??'')}
               </div>
             </div>
           )
